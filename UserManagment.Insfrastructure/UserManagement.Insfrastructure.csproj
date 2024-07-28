@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Repository\Repository.csproj" />
+		<ProjectReference Include="..\ServiceBus\ServiceBus.csproj" />
+		<ProjectReference Include="..\UserManagment.Application\UserManagement.Application.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,33 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+      http:
+processors:
+  batch:
+exporters:
+  otlp:
+   endpoint : http://apm-server:8200
+   tls:
+      insecure: true
+  prometheus:
+    endpoint: "0.0.0.0:8889"
+
+
+extensions:
+  health_check:
+service:
+  extensions: [health_check]
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlp]
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlp,prometheus]
+    logs:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlp]

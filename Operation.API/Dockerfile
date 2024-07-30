@@ -11,8 +11,12 @@ WORKDIR /src
 COPY ["Operation.API/Operation.API.csproj", "Operation.API/"]
 COPY ["Operation.Application/Operation.Application.csproj", "Operation.Application/"]
 COPY ["Operation.Domain/Operation.Domain.csproj", "Operation.Domain/"]
-COPY ["Operation.Instrastructure/Operation.Instrastructure.csproj", "Operation.Instrastructure/"]
+COPY ["Core/Core.csproj", "Core/"]
+COPY ["Caching/Caching.csproj", "Caching/"]
+COPY ["Observability/Observability.csproj", "Observability/"]
 COPY ["ServiceBus/ServiceBus.csproj", "ServiceBus/"]
+COPY ["Operation.Instrastructure/Operation.Instrastructure.csproj", "Operation.Instrastructure/"]
+COPY ["Repository/Repository.csproj", "Repository/"]
 RUN dotnet restore "./Operation.API/Operation.API.csproj"
 COPY . .
 WORKDIR "/src/Operation.API"

@@ -11,8 +11,12 @@ WORKDIR /src
 COPY ["Notification.API/Notification.API.csproj", "Notification.API/"]
 COPY ["Notification.Application/Notification.Application.csproj", "Notification.Application/"]
 COPY ["Notification.Domain/Notification.Domain.csproj", "Notification.Domain/"]
-COPY ["Notification.Infrastructure/Notification.Infrastructure.csproj", "Notification.Infrastructure/"]
+COPY ["Core/Core.csproj", "Core/"]
+COPY ["Caching/Caching.csproj", "Caching/"]
+COPY ["Observability/Observability.csproj", "Observability/"]
 COPY ["ServiceBus/ServiceBus.csproj", "ServiceBus/"]
+COPY ["Notification.Infrastructure/Notification.Infrastructure.csproj", "Notification.Infrastructure/"]
+COPY ["Repository/Repository.csproj", "Repository/"]
 RUN dotnet restore "./Notification.API/Notification.API.csproj"
 COPY . .
 WORKDIR "/src/Notification.API"

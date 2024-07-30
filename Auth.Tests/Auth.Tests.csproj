@@ -17,10 +17,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Auth.API\Auth.API.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<Using Include="Xunit" />
 	</ItemGroup>
 

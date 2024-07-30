@@ -11,8 +11,12 @@ WORKDIR /src
 COPY ["Communication.API/Communication.API.csproj", "Communication.API/"]
 COPY ["Communication.Application/Communication.Application.csproj", "Communication.Application/"]
 COPY ["Communication.Domain/Communication.Domain.csproj", "Communication.Domain/"]
-COPY ["Communication.Persistence/Communication.Infrastructure.csproj", "Communication.Persistence/"]
+COPY ["Core/Core.csproj", "Core/"]
+COPY ["Caching/Caching.csproj", "Caching/"]
+COPY ["Observability/Observability.csproj", "Observability/"]
 COPY ["ServiceBus/ServiceBus.csproj", "ServiceBus/"]
+COPY ["Communication.Persistence/Communication.Infrastructure.csproj", "Communication.Persistence/"]
+COPY ["Repository/Repository.csproj", "Repository/"]
 RUN dotnet restore "./Communication.API/Communication.API.csproj"
 COPY . .
 WORKDIR "/src/Communication.API"

@@ -7,7 +7,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\Repository\Repository.csproj" />
+		<ProjectReference Include="..\Repository\Repository.csproj" />
 		<ProjectReference Include="..\ServiceBus\ServiceBus.csproj" />
 		<ProjectReference Include="..\UserManagment.Application\UserManagement.Application.csproj" />
 	</ItemGroup>

@@ -11,8 +11,12 @@ WORKDIR /src
 COPY ["Auth.API/Auth.API.csproj", "Auth.API/"]
 COPY ["Auth.Application/Auth.Application.csproj", "Auth.Application/"]
 COPY ["Auth.Domain/Auth.Domain.csproj", "Auth.Domain/"]
-COPY ["Auth.Persistence/Auth.Infrastructure.csproj", "Auth.Persistence/"]
+COPY ["Core/Core.csproj", "Core/"]
+COPY ["Caching/Caching.csproj", "Caching/"]
+COPY ["Observability/Observability.csproj", "Observability/"]
 COPY ["ServiceBus/ServiceBus.csproj", "ServiceBus/"]
+COPY ["Auth.Persistence/Auth.Infrastructure.csproj", "Auth.Persistence/"]
+COPY ["Repository/Repository.csproj", "Repository/"]
 RUN dotnet restore "./Auth.API/Auth.API.csproj"
 COPY . .
 WORKDIR "/src/Auth.API"

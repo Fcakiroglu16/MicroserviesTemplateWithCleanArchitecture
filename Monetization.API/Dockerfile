@@ -12,8 +12,12 @@ WORKDIR /src
 COPY ["Monetization.API/Monetization.API.csproj", "Monetization.API/"]
 COPY ["Monetization.Application/Monetization.Application.csproj", "Monetization.Application/"]
 COPY ["Monetization.Domain/Monetization.Domain.csproj", "Monetization.Domain/"]
-COPY ["Monetization.Infrastructure/Monetization.Infrastructure.csproj", "Monetization.Infrastructure/"]
+COPY ["Core/Core.csproj", "Core/"]
+COPY ["Caching/Caching.csproj", "Caching/"]
+COPY ["Observability/Observability.csproj", "Observability/"]
 COPY ["ServiceBus/ServiceBus.csproj", "ServiceBus/"]
+COPY ["Monetization.Infrastructure/Monetization.Infrastructure.csproj", "Monetization.Infrastructure/"]
+COPY ["Repository/Repository.csproj", "Repository/"]
 RUN dotnet restore "./Monetization.API/Monetization.API.csproj"
 COPY . .
 WORKDIR "/src/Monetization.API"

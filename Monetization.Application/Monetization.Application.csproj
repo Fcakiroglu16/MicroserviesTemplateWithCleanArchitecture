@@ -7,7 +7,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\Core\Core.csproj" />
 		<ProjectReference Include="..\Monetization.Domain\Monetization.Domain.csproj" />
 	</ItemGroup>
 

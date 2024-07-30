@@ -8,21 +8,25 @@ EXPOSE 8080
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["UserManagment.API/UserManagment.API.csproj", "UserManagment.API/"]
-COPY ["UserManagment.Application/UserManagment.Application.csproj", "UserManagment.Application/"]
-COPY ["UserManagment.Domain/UserManagment.Domain.csproj", "UserManagment.Domain/"]
-COPY ["UserManagment.Insfrastructure/UserManagment.Insfrastructure.csproj", "UserManagment.Insfrastructure/"]
+COPY ["UserManagment.API/UserManagement.API.csproj", "UserManagment.API/"]
+COPY ["UserManagment.Application/UserManagement.Application.csproj", "UserManagment.Application/"]
+COPY ["UserManagment.Domain/UserManagement.Domain.csproj", "UserManagment.Domain/"]
+COPY ["Core/Core.csproj", "Core/"]
+COPY ["Caching/Caching.csproj", "Caching/"]
+COPY ["Observability/Observability.csproj", "Observability/"]
 COPY ["ServiceBus/ServiceBus.csproj", "ServiceBus/"]
-RUN dotnet restore "./UserManagment.API/UserManagment.API.csproj"
+COPY ["UserManagment.Insfrastructure/UserManagement.Insfrastructure.csproj", "UserManagment.Insfrastructure/"]
+COPY ["Repository/Repository.csproj", "Repository/"]
+RUN dotnet restore "./UserManagment.API/UserManagement.API.csproj"
 COPY . .
 WORKDIR "/src/UserManagment.API"
-RUN dotnet build "./UserManagment.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "./UserManagement.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./UserManagment.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./UserManagement.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "UserManagment.API.dll"]
+ENTRYPOINT ["dotnet", "UserManagement.API.dll"]
